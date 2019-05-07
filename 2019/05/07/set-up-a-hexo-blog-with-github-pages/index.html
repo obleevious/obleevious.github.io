@@ -38,6 +38,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
 
 
 
@@ -75,7 +79,7 @@
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
-    fancybox: false,
+    fancybox: true,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -96,18 +100,18 @@
 
 
 
-  <meta name="description" content="First Post of WebGL Test">
-<meta name="keywords" content="coding">
+  <meta name="description" content="Hexo is a open source static blog framework. Here static makes it possible to host your blog on GitHub Pages! Fancy? Let’s start: Install Hexo:Follow instructions from Hexo official website: https://h">
+<meta name="keywords" content="Obleevious">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WebGL Play Ground">
-<meta property="og:url" content="https://obleevious.github.io/2019/05/03/WebGL-Play-Ground/index.html">
+<meta property="og:title" content="Set up a Hexo Blog with GitHub Pages">
+<meta property="og:url" content="https://obleevious.github.io/2019/05/07/set-up-a-hexo-blog-with-github-pages/index.html">
 <meta property="og:site_name" content="Oblivious">
-<meta property="og:description" content="First Post of WebGL Test">
+<meta property="og:description" content="Hexo is a open source static blog framework. Here static makes it possible to host your blog on GitHub Pages! Fancy? Let’s start: Install Hexo:Follow instructions from Hexo official website: https://h">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-03T19:54:19.066Z">
+<meta property="og:updated_time" content="2019-05-07T17:19:20.973Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WebGL Play Ground">
-<meta name="twitter:description" content="First Post of WebGL Test">
+<meta name="twitter:title" content="Set up a Hexo Blog with GitHub Pages">
+<meta name="twitter:description" content="Hexo is a open source static blog framework. Here static makes it possible to host your blog on GitHub Pages! Fancy? Let’s start: Install Hexo:Follow instructions from Hexo official website: https://h">
 
 
 
@@ -115,7 +119,7 @@
 
   
   
-  <link rel="canonical" href="https://obleevious.github.io/2019/05/03/WebGL-Play-Ground/">
+  <link rel="canonical" href="https://obleevious.github.io/2019/05/07/set-up-a-hexo-blog-with-github-pages/">
 
 
 
@@ -125,7 +129,7 @@
   };
 </script>
 
-  <title>WebGL Play Ground | Oblivious</title>
+  <title>Set up a Hexo Blog with GitHub Pages | Oblivious</title>
   
 
 
@@ -324,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://obleevious.github.io/2019/05/03/WebGL-Play-Ground/">
+    <link itemprop="mainEntityOfPage" href="https://obleevious.github.io/2019/05/07/set-up-a-hexo-blog-with-github-pages/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Obleevious">
@@ -341,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">WebGL Play Ground
+          <h1 class="post-title" itemprop="name headline">Set up a Hexo Blog with GitHub Pages
 
               
             
@@ -367,7 +371,7 @@
                 
               
 
-              <time title="Created: 2019-05-03 15:35:24 / Modified: 15:54:19" itemprop="dateCreated datePublished" datetime="2019-05-03T15:35:24-04:00">2019-05-03</time>
+              <time title="Created: 2019-05-07 11:41:45 / Modified: 13:19:20" itemprop="dateCreated datePublished" datetime="2019-05-07T11:41:45-04:00">2019-05-07</time>
             
 
             
@@ -406,7 +410,22 @@
       
 
       
-        <h2 id="First-Post-of-WebGL-Test"><a href="#First-Post-of-WebGL-Test" class="headerlink" title="First Post of WebGL Test"></a>First Post of WebGL Test</h2>
+        <p>Hexo is a open source static blog framework. Here static makes it possible to host your blog on GitHub Pages!</p>
+<p>Fancy? Let’s start:</p>
+<h2 id="Install-Hexo"><a href="#Install-Hexo" class="headerlink" title="Install Hexo:"></a>Install Hexo:</h2><p>Follow instructions from Hexo official website: <a href="https://hexo.io/docs/" target="_blank" rel="noopener">https://hexo.io/docs/</a></p>
+<h2 id="Init-a-Hexo-blog-instance"><a href="#Init-a-Hexo-blog-instance" class="headerlink" title="Init a Hexo blog instance:"></a>Init a Hexo blog instance:</h2><p>Create a new folder for your blog project:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir myBlog</span><br><span class="line">cd myBlog</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<h2 id="Make-it-an-GitHub-repo"><a href="#Make-it-an-GitHub-repo" class="headerlink" title="Make it an GitHub repo:"></a>Make it an GitHub repo:</h2><p>Create a new repo on GitHub, clone it to your local machine:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">git clone git@github.com:&lt;UserName&gt;/&lt;RepoName&gt;</span><br><span class="line">mv myBlog/* RepoName/</span><br><span class="line">rm -r myBlog</span><br></pre></td></tr></table></figure>
+<p><strong>This is not a GitHub Pages repo</strong></p>
+<h2 id="Create-your-GitHub-Pages-repo"><a href="#Create-your-GitHub-Pages-repo" class="headerlink" title="Create your GitHub Pages repo:"></a>Create your GitHub Pages repo:</h2><p>Follow instructions from the following link: <a href="https://pages.github.com/" target="_blank" rel="noopener">https://pages.github.com/</a></p>
+<p>Whit this you can now fire up a browser and go to <a href="https://username.github.io" target="_blank" rel="noopener">https://username.github.io</a></p>
+<p>That is where our static blog will be hosted</p>
+<h2 id="Config-Hexo-to-deploy-your-blog-with-a-simple-command"><a href="#Config-Hexo-to-deploy-your-blog-with-a-simple-command" class="headerlink" title="Config Hexo to deploy your blog with a simple command"></a>Config Hexo to deploy your blog with a simple command</h2><p>Hexo allow you to deploy static pages generated to server with a simple command, to setup see <a href="https://hexo.io/docs/deployment" target="_blank" rel="noopener">https://hexo.io/docs/deployment</a></p>
+<p><code>hexo generate</code> or <code>hexo g</code> for short will generate your static blog under <code>myBlog/public</code> folder.</p>
+<p><code>hexo deploy</code> or <code>hexo d</code> will deploy that public folder to your destiny repo</p>
+<p>Refresh your GitHub Page, Cong!</p>
+
       
     </div>
 
@@ -427,33 +446,11 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/coding/" rel="tag"># coding</a>
-          
-        </div>
-      
 
       
       
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/05/03/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
       
 
       
@@ -519,7 +516,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -527,23 +524,6 @@
 
               
 
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                      <a href="/tags/">
-                    
-                  
-                    
-                    
-                      
-                    
-                    <span class="site-state-item-count">1</span>
-                    <span class="site-state-item-name">tags</span>
-                  </a>
-                </div>
               
             </nav>
           
@@ -593,7 +573,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#First-Post-of-WebGL-Test"><span class="nav-number">1.</span> <span class="nav-text">First Post of WebGL Test</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Hexo"><span class="nav-number">1.</span> <span class="nav-text">Install Hexo:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Init-a-Hexo-blog-instance"><span class="nav-number">2.</span> <span class="nav-text">Init a Hexo blog instance:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-it-an-GitHub-repo"><span class="nav-number">3.</span> <span class="nav-text">Make it an GitHub repo:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-your-GitHub-Pages-repo"><span class="nav-number">4.</span> <span class="nav-text">Create your GitHub Pages repo:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Config-Hexo-to-deploy-your-blog-with-a-simple-command"><span class="nav-number">5.</span> <span class="nav-text">Config Hexo to deploy your blog with a simple command</span></a></li></ol></div>
             
 
           </div>
@@ -679,6 +659,8 @@
 
 
 
+  
+
 
 
 
@@ -701,6 +683,9 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
 
 
   
