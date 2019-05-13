@@ -101,14 +101,14 @@
 
 
   <meta name="description" content="IBM created =&amp;gt; PC IBM + Microsoft =&amp;gt; MS DOC as OS for PC Steve &amp;amp; Steve =&amp;gt; Apple =&amp;gt; Macintosh  Bell labs (AT&amp;amp;T) Ken &amp;amp; Dennis =&amp;gt; UNICS changed name to UNIX University of Calif">
-<meta name="keywords" content="OS,basic knowledge">
+<meta name="keywords" content="basic,OS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Unix Linux Windows MacOS TL;DR">
 <meta property="og:url" content="https://obleevious.github.io/2019/05/09/unix-linux-windows-macos-tl-dr/index.html">
 <meta property="og:site_name" content="Oblivious">
 <meta property="og:description" content="IBM created =&amp;gt; PC IBM + Microsoft =&amp;gt; MS DOC as OS for PC Steve &amp;amp; Steve =&amp;gt; Apple =&amp;gt; Macintosh  Bell labs (AT&amp;amp;T) Ken &amp;amp; Dennis =&amp;gt; UNICS changed name to UNIX University of Calif">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-09T17:37:30.375Z">
+<meta property="og:updated_time" content="2019-05-13T15:54:56.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unix Linux Windows MacOS TL;DR">
 <meta name="twitter:description" content="IBM created =&amp;gt; PC IBM + Microsoft =&amp;gt; MS DOC as OS for PC Steve &amp;amp; Steve =&amp;gt; Apple =&amp;gt; Macintosh  Bell labs (AT&amp;amp;T) Ken &amp;amp; Dennis =&amp;gt; UNICS changed name to UNIX University of Calif">
@@ -371,12 +371,24 @@
                 
               
 
-              <time title="Created: 2019-05-09 11:57:03 / Modified: 13:37:30" itemprop="dateCreated datePublished" datetime="2019-05-09T11:57:03-04:00">2019-05-09</time>
+              <time title="Created: 2019-05-09 11:57:03" itemprop="dateCreated datePublished" datetime="2019-05-09T11:57:03-04:00">2019-05-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-13 11:54:56" itemprop="dateModified" datetime="2019-05-13T11:54:56-04:00">2019-05-13</time>
               
             
           </span>
@@ -460,9 +472,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/OS/" rel="tag"># OS</a>
+            <a href="/tags/basic/" rel="tag"># basic</a>
           
-            <a href="/tags/basic-knowledge/" rel="tag"># basic knowledge</a>
+            <a href="/tags/OS/" rel="tag"># OS</a>
           
         </div>
       
@@ -484,6 +496,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/13/all-about-typing/" rel="prev" title="All About Typing">
+                All About Typing <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -550,7 +566,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -648,9 +664,15 @@
 </div>
 
 
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.1.1</div>
 
 
 
@@ -823,6 +845,41 @@
   
 
   
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('Copied');
+        else $(this).text('Copy failed');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('Copy');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
   
 
