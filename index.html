@@ -325,6 +325,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://obleevious.github.io/2019/06/05/sever-sent-event/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Obleevious">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oblivious">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/05/sever-sent-event/" class="post-title-link" itemprop="url">Sever Sent Event</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-05 15:01:45 / Modified: 15:29:15" itemprop="dateCreated datePublished" datetime="2019-06-05T15:01:45-04:00">2019-06-05</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2019/06/05/sever-sent-event/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/05/sever-sent-event/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近做了一个需要实现实时通信的项目，在尝试中了解到了SSE，感觉很有意思遂抽空把学习实践过程中遇到的问题记录下来。</p>
+<h1 id="实现逻辑"><a href="#实现逻辑" class="headerlink" title="实现逻辑"></a>实现逻辑</h1><p>先看一段最基础的代码：</p>
+<p>Sever side(PHP) &lt;&lt;BestLangintheWorld:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">header(&quot;Cache-Control: no-cache&quot;);</span><br><span class="line">header(&quot;Content-Type: text/event-stream\n\n&quot;);</span><br><span class="line"></span><br><span class="line">$time = date(&quot;r&quot;);</span><br><span class="line"></span><br><span class="line">echo &quot;data: The Server Time has Changed &#123;$timr&#125;\n&quot;;</span><br><span class="line"></span><br><span class="line">flush();</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>Client Side(JS):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if (typeof(EventSource) != &quot;undefined&quot;) &#123;</span><br><span class="line">    var source = new EventSource(&quot;path/to/server_side.php&quot;);</span><br><span class="line">    source.onmessage = function(event) &#123;</span><br><span class="line">        document.gerElementById(&quot;result&quot;).innerHtml += event.data + &lt;br&gt;&quot;;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    console.log(&quot;SSE not supported&quot;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>我的第一个困惑就是上边的一段代码并没有任何地方定义了链接时间，从逻辑上并看不出来server多久会给client发送新的消息。也不知道是什么导致了信息从server发送到client。</p>
+<p>然而体感告诉我Client每隔3秒钟就会受到一条新的消息。原来Sever的config里还有玄机。这里省略了一个message field <code>retry</code> 如果缺省就会被自动定义为 3 秒。而这就是connection close之后重连的时间。</p>
+<p>那么如何让connection变成persistent从而使得我们可以编写一些逻辑按照我们的需求trigger data的发送呢。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://obleevious.github.io/2019/05/13/all-about-typing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1146,7 +1310,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1175,7 +1339,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
